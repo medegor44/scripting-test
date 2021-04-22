@@ -11,10 +11,8 @@ namespace scripting_test
             using var sr = new StreamReader("input.txt");
             var script = await sr.ReadToEndAsync();
 
-            var scriptingEngine = new CSharpScripting();
-            var result = await scriptingEngine.RunScriptAsync<string>(script, new Globals());
-
-            Console.WriteLine(result);
+            var inMemoryCompilation = new CSharpCodeCompilation(script);
+            inMemoryCompilation.Run();
         }
     }
 }
