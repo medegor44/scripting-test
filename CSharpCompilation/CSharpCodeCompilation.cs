@@ -36,10 +36,11 @@ namespace CSHarpCodeCompilationTest
                 var instance = Activator.CreateInstance(type);
 
                 type.InvokeMember("Write",
-                BindingFlags.Default | BindingFlags.InvokeMethod,
-                null,
-                instance,
-                new[] { "Hello world" });
+                    BindingFlags.Default | BindingFlags.InvokeMethod,
+                    null,
+                    instance,
+                    new[] { "Hello world" }
+                );
             }
         }
 
@@ -51,9 +52,14 @@ namespace CSHarpCodeCompilationTest
 
             var assemblyName = Path.GetRandomFileName();
 
+            var dotNetCoreDir = Path.GetDirectoryName(typeof(object).Assembly.Location);
+
             var references = new MetadataReference[]
             {
-                MetadataReference.CreateFromFile(typeof(System.Console).Assembly.Location),
+                MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
+                MetadataReference.CreateFromFile(typeof(Console).Assembly.Location),
+                MetadataReference.CreateFromFile(Path.Combine(dotNetCoreDir, "System.Runtime.dll")),
+                MetadataReference.CreateFromFile(typeof(GlobalStuff.Globals).Assembly.Location),
             };
 
             Compilation = CSharpCompilation.Create(
