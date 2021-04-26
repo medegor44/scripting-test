@@ -5,7 +5,7 @@ using System.Reflection;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-namespace scripting_test
+namespace CSHarpCodeCompilationTest
 {
     class CSharpCodeCompilation
     {
@@ -53,8 +53,7 @@ namespace scripting_test
 
             var references = new MetadataReference[]
             {
-                MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
-                MetadataReference.CreateFromFile(typeof(Enumerable).Assembly.Location)
+                MetadataReference.CreateFromFile(typeof(System.Console).Assembly.Location),
             };
 
             Compilation = CSharpCompilation.Create(

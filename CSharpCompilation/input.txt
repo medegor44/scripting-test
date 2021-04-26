@@ -2,7 +2,7 @@ using System;
 
 namespace Script
 {
-    public class Writer
+    class Writer
     {
         public void Write(string text)
         {
