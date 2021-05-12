@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpScripting", "CSharpSc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeDomCompilation", "CodeDomCompilation\CodeDomCompilation.csproj", "{B9534DEE-D52A-4DE6-8788-3BF6A7B159FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDomCompilation.NetFramework", "CodeDomCompilation.NetFramework\CodeDomCompilation.NetFramework.csproj", "{57D0640A-901D-40FE-9436-85B7525B4B2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{B9534DEE-D52A-4DE6-8788-3BF6A7B159FD}.Release|x64.Build.0 = Release|Any CPU
 		{B9534DEE-D52A-4DE6-8788-3BF6A7B159FD}.Release|x86.ActiveCfg = Release|Any CPU
 		{B9534DEE-D52A-4DE6-8788-3BF6A7B159FD}.Release|x86.Build.0 = Release|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Debug|x64.Build.0 = Debug|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Debug|x86.Build.0 = Debug|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Release|x64.ActiveCfg = Release|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Release|x64.Build.0 = Release|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Release|x86.ActiveCfg = Release|Any CPU
+		{57D0640A-901D-40FE-9436-85B7525B4B2B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

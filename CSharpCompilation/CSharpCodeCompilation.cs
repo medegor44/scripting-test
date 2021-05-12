@@ -7,6 +7,7 @@ using Microsoft.CodeAnalysis.CSharp;
 
 namespace CSHarpCodeCompilationTest
 {
+
     class CSharpCodeCompilation
     {
         public CSharpCodeCompilation(string code)
