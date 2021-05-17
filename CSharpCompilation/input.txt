@@ -1,0 +1,16 @@
+using System;
+using GlobalStuff;
+
+namespace Script
+{
+    public class Writer
+    {
+        public void Write(string str)
+        {
+            var globals = new Globals();
+
+            var res = globals.Print(str);
+            globals.Print(res);
+        }
+    }
+}
