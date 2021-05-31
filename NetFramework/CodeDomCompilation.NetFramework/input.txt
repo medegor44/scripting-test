@@ -1,0 +1,13 @@
+using System;
+using GlobalStuff;
+
+namespace Scripts
+{
+    class UserCode
+    {
+        public void Main(string args)
+        {
+            Globals.Print(args);
+        }
+    }
+}
