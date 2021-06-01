@@ -1,6 +1,8 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Scripting;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Scripting;
+using Microsoft.CodeAnalysis.Scripting.Hosting;
+using System.Runtime;
 
 namespace ScriptingLibrary
 {
@@ -17,7 +19,7 @@ namespace ScriptingLibrary
             Container = container;
 
             Code = new ResolvingCodeGenerator(container).ResolveLines + Code;
-            //AddImportsAndReferences();
+            AddImportsAndReferences();
         }
 
         public async Task RunAsync()
