@@ -6,20 +6,8 @@ using ScriptingLibrary;
 namespace AndroidTests
 {
     [TestFixture]
-    public class TestSample
+    public class ScriptCodeRunnerTests
     {
-        [SetUp]
-        public void Setup()
-        {
-            // write your test fixture setup
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            // write your test fixture teardown 
-        }
-
         [Test]
         public async Task Pass()
         {
