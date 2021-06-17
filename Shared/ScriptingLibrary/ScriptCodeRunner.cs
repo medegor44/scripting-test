@@ -1,8 +1,9 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Scripting;
+﻿using System.Collections.Immutable;
+using System.Reflection;
+using Microsoft.CodeAnalysis.CSharp.Scripting;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Scripting;
-using Microsoft.CodeAnalysis.Scripting.Hosting;
-using System.Runtime;
 
 namespace ScriptingLibrary
 {
@@ -19,6 +20,27 @@ namespace ScriptingLibrary
             Container = container;
 
             Code = new ResolvingCodeGenerator(container).ResolveLines + Code;
+
+            var optsCtor = typeof(ScriptOptions)
+                .GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance);
+            var opts = optsCtor[0].Invoke(new object[]
+            {
+                string.Empty,
+                ImmutableArray<MetadataReference>.Empty,
+                ImmutableArray<string>.Empty,
+                ScriptMetadataResolver.Default,
+                SourceFileResolver.Default,
+                false,
+                null,
+                OptimizationLevel.Debug,
+                false,
+                true,
+                4,
+                null
+            }) as ScriptOptions;
+
+            Options = opts;
+
             AddImportsAndReferences();
         }
 
@@ -36,8 +58,7 @@ namespace ScriptingLibrary
             }
         }
 
-
-        private ScriptOptions Options { get; set; } = ScriptOptions.Default;
+        private ScriptOptions Options { get; set; }
         private Container Container { get; }
         private string Code { get; }
     }

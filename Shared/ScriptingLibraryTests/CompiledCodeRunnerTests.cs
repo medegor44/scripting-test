@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 using ScriptingLibrary;
 using System.Threading.Tasks;
 using HelperObjects;
@@ -30,6 +31,15 @@ namespace ScriptingLibraryTests
             await runner.RunAsync();
 
             Assert.Equal(1, t.x);
+        }
+
+        [Fact]
+        public async Task RunWithNotAllowedFunc_Failed()
+        {
+            var code = "System.IO.Path.Combine(\"a\",  \"b\");";
+            var runner = new CompiledCodeRunner(code, new Container());
+
+            await Assert.ThrowsAsync<Exception>(() => runner.RunAsync());
         }
     }
 }

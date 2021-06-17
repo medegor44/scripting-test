@@ -58,8 +58,8 @@ namespace ScriptingLibraryTests
         public async Task RunWithNotAllowedFunc_Fail()
         {
             var container = new Container();
-
-            var code = "using System.IO; new StreamWriter(\"a.txt\");";
+            
+            var code = "var w = new System.IO.StreamWriter(\"a.txt\"); w.WriteLine(\"Hello\"); w.Close();";
 
             var runner = new ScriptCodeRunner(code, container);
 

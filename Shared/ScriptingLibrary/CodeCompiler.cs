@@ -26,11 +26,13 @@ namespace ScriptingLibrary
 
             var references = GenerateMetadataReferences();
 
+            var opts = new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary);
+
             Compilation = CSharpCompilation.Create(
                 assemblyName,
                 new[] {syntaxTree},
                 references,
-                new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
+                opts
             );
         }
 
@@ -50,7 +52,6 @@ namespace ScriptingLibrary
             refs.AddRange(new MetadataReference[]
             {
                 MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
-                MetadataReference.CreateFromFile(typeof(Console).Assembly.Location),
                 MetadataReference.CreateFromFile(Path.Combine(dotNetCoreDir, "System.Runtime.dll")),
                 MetadataReference.CreateFromFile(Path.Combine(dotNetCoreDir, "netstandard.dll")),
                 MetadataReference.CreateFromFile(typeof(Container).Assembly.Location),

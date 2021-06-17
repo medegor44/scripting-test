@@ -14,7 +14,6 @@ namespace ScriptingLibrary
         {
             var template =
 @"
-using System;
 using {0};
 {1}
 
@@ -56,21 +55,19 @@ public class Runner
 
                 throw new Exception(string.Join(Environment.NewLine, failures));
             }
-            else
-            {
-                memoryStream.Seek(0, SeekOrigin.Begin);
-                var assembly = Assembly.Load(memoryStream.ToArray());
 
-                var type = assembly.GetType("Runner");
-                var instance = Activator.CreateInstance(type);
+            memoryStream.Seek(0, SeekOrigin.Begin);
+            var assembly = Assembly.Load(memoryStream.ToArray());
 
-                type.InvokeMember("Run",
-                    BindingFlags.Default | BindingFlags.InvokeMethod,
-                    null,
-                    instance, 
-                    new object[] { Container }
-                );
-            }
+            var type = assembly.GetType("Runner");
+            var instance = Activator.CreateInstance(type);
+
+            type.InvokeMember("Run",
+                BindingFlags.Default | BindingFlags.InvokeMethod,
+                null,
+                instance, 
+                new object[] { Container }
+            );
         }
 
         private CSharpCompilation Compilation { get; }
