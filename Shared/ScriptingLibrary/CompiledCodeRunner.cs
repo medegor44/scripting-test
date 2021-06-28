@@ -62,12 +62,13 @@ public class Runner
             var type = assembly.GetType("Runner");
             var instance = Activator.CreateInstance(type);
 
-            type.InvokeMember("Run",
-                BindingFlags.Default | BindingFlags.InvokeMethod,
-                null,
-                instance, 
-                new object[] { Container }
-            );
+            await Task.Run(() =>
+                type.InvokeMember("Run",
+                    BindingFlags.Default | BindingFlags.InvokeMethod,
+                    null,
+                    instance, 
+                    new object[] { Container }
+            ));
         }
 
         private CSharpCompilation Compilation { get; }
