@@ -32,6 +32,17 @@ namespace ScriptingLibrary
             throw new ArgumentException("unregistered dependency");
         }
 
+        public void RegisterFunction(object func, string alias)
+        {
+            Functions[alias] = func;
+        }
+
+        public object ResolveFunction(string alias)
+        {
+            return Functions[alias];
+        }
+
+        public Dictionary<string, object> Functions { get; } = new();
         public Dictionary<Type, object> Instances { get; } = new();
         public Dictionary<Type, string> Names { get; } = new();
     }
